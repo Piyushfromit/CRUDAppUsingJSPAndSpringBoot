@@ -31,8 +31,17 @@ public class StudentServiceImpl implements StudentService{
 
 	@Override
 	public List<Student> getAll() {
-		return studentRepository.findAll();
+		
+		List<Student> list=  studentRepository.findAll();
+		
+		// System.out.println(list.toString());
+		if(list.size()==0) {
+			return null;
+		}
+		return list;
 	}
+	
+	
 
 	@Override
 	public Student getById(Integer id) {

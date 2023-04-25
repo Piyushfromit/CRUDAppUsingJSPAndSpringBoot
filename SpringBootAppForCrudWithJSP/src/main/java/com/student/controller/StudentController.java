@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,13 +22,25 @@ public class StudentController {
 	@Autowired
 	StudentService studentService;
 
+//	@GetMapping("/")
+//	public ModelAndView getAllStudents() {
+//		ModelAndView mav = new ModelAndView("index");
+//		List<Student> studentList = studentService.getAll();
+//	    System.out.println(studentService.getAll());
+//		mav.addObject("students", studentList);
+//		return mav;
+//	}
+	
+	
 	@GetMapping("/")
-	public ModelAndView getAllStudents() {
-		ModelAndView mav = new ModelAndView("index");
-		List<Student> studentList = studentService.getAll();
-		mav.addObject("students", studentList);
-		return mav;
+	public ModelAndView getStudentList() {
+		List<Student> list = studentService.getAll();
+		//A variable named studentList will be sent to view_student.jsp page such that the variable
+		//contains the list of students
+		ModelAndView mv = new ModelAndView("index", "students", list);
+		return mv;
 	}
+	
 
 	@GetMapping("/add-student")
 	public ModelAndView addStudent() {

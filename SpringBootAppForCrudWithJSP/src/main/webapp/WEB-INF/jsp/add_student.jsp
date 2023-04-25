@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>   --%>
+   <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>     
 <html>
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="col-md-10">
-                    <form:form action="/Spring_Boot_CRUD_With_JSP/save-student"
+                    <form:form action="/save-student"
                         method="post" modelAttribute="command">
                         <form:hidden path="id" />
                         <div class="row">

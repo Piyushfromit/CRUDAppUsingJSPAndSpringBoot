@@ -7,9 +7,9 @@ import com.student.model.Student;
 public interface StudentService {
 	
 	
-	void save(Student student);
-	List<Student> getAll();
-	Student getById(Integer id);
-	void delete(Student student);
+	public void save(Student student);
+	public List<Student> getAll();
+	public Student getById(Integer id);
+	public void delete(Student student);
 
 }

@@ -25,20 +25,21 @@
                         method="post" modelAttribute="command">
                         <form:hidden path="id" />
                         <div class="row">
+                            
                             <div class="form-group col-md-8">
                                 <label for="name" class="col-form-label">Name</label>
                                 <form:input type="text" class="form-control" id="name"
                                     path="name" placeholder="Enter Name" />
                             </div>
                             <div class="form-group col-md-8">
-                                <label for="name" class="col-form-label">Roll No.</label>
-                                <form:input type="text" class="form-control" id="rollNo"
-                                    path="rollNo" placeholder="Enter Roll No." />
+                                <label for="marks" class="col-form-label">Marks</label>
+                                <form:input type="text" class="form-control" id="marks"
+                                    path="marks" placeholder="Enter Marks" />
                             </div>
                             <div class="form-group col-md-8">
-                                <label for="email" class="col-form-label">Email</label>
-                                <form:input type="text" class="form-control" id="email"
-                                    path="emailId" placeholder="Email Id" />
+                                <label for="address" class="col-form-label">Address</label>
+                                <form:input type="text" class="form-control" id="address"
+                                    path="address" placeholder="Enter Address" />
                             </div>
 
                             <div class="col-md-6">

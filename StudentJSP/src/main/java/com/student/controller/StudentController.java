@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,13 +32,21 @@ public class StudentController {
 		return "index";
 	}
 	
+//	@GetMapping("/view_student")
+//	public ModelAndView getStudentList() {
+//		List<Student> list = studentService.getAllStudent();
+//		//A variable named studentList will be sent to view_student.jsp page such that the variable
+//		//contains the list of students
+//		ModelAndView mv = new ModelAndView("view_student", "studentList", list);
+//		return mv;
+//	}
+	
+	
 	@GetMapping("/view_student")
-	public ModelAndView getStudentList() {
+	public String getStudentList(Model model) {
 		List<Student> list = studentService.getAllStudent();
-		//A variable named studentList will be sent to view_student.jsp page such that the variable
-		//contains the list of students
-		ModelAndView mv = new ModelAndView("view_student", "studentList", list);
-		return mv;
+		model.addAttribute(list);
+		return "view_student";    
 	}
 	
 	

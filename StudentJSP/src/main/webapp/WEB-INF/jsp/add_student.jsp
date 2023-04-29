@@ -21,7 +21,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="col-md-10">
-                    <form:form action="/save-student"
+                    <form:form action="/add-student"
                         method="post" modelAttribute="command">
                         <form:hidden path="id" />
                         <div class="row">

@@ -64,7 +64,6 @@ public class StudentServiceImp implements StudentService {
 		Optional<Student> opt = studentRepo.findById(student.getId());
 		if (opt.isPresent()) {
 			studentRepo.save(student);
-			
 		} else {
 			return null;
 		}
@@ -72,11 +71,30 @@ public class StudentServiceImp implements StudentService {
 	}
 
 	@Override
-	public void deleteStudentById(Integer id) {
+	public Student deleteStudentById(Integer id) {
 		Optional<Student> opt = studentRepo.findById(id);
 		if (opt.isPresent()) {
 			studentRepo.delete(opt.get());
 		} 
+		return opt.get();
+	}
+
+
+
+
+	@Override
+	public Optional<Student> findByIdStudent(Integer id) {
+		return studentRepo.findById(id);
+	}
+
+	@Override
+	public Student saveByIdStudent(Integer id, Student student) {
+		Student student2=studentRepo.findById(id).orElse(null);
+		student2.setName(student.getName());
+		student2.setMarks(student.getMarks());
+		student2.setAddress(student.getAddress());
+		return student2;
+		
 	}
 	
 	

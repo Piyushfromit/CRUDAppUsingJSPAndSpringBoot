@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+
 
 import com.student.model.Student;
 import com.student.service.StudentService;
@@ -23,14 +22,9 @@ public class StudentController {
 	
     @Autowired
     StudentService studentService;
-
-	@GetMapping("/")
-	public String index() {
-		return "index";
-	}
 	
 	// for View List of Student
-	@GetMapping("/view_student")
+	@GetMapping("/")
 	public String getStudentList(Model model) {
 		List<Student> list = studentService.getAllStudent();
 		model.addAttribute("studentList", list);
@@ -48,7 +42,7 @@ public class StudentController {
 	@PostMapping("/add-student")
 	public String saveStaff(@ModelAttribute Student student) {
 		studentService.saveStudent(student);
-		return "redirect:/view_student";
+		return "redirect:/";
 	}
 	
 	// Update Student
@@ -72,7 +66,7 @@ public class StudentController {
 		
 		studentService.updateStudent(oldstudent);
 		
-		return "redirect:/view_student";
+		return "redirect:/";
 		
 	}
 		
@@ -81,7 +75,7 @@ public class StudentController {
 	@GetMapping("/deleteStudentById/{id}")
 	public String deleteStudentById( @PathVariable("id") Integer stuId){
 		studentService.deleteStudentById(stuId);
-		return "redirect:/view_student";
+		return "redirect:/";
 	}
 	
 	

@@ -4,29 +4,66 @@
    <HEAD>
       <TITLE>JSP for CRUD</TITLE>
       <style type="text/css">
+         
          #myTable{
-         color: red;
-         }
-         table {
          border-collapse: collapse;
          border: 1px solid black;
-         } 
+         margin: auto;
+         }
+         a{
+         text-decoration: none;
+         }
+         
          th,td {
          border: 1px solid black;
+         text-align: center;
+         padding:10px;
          }
-         table.a {
-         table-layout: auto;
-         width: 180px;  
+         .btn{
+         text-decoration: none;
+        
          }
-         #tableDiv{
-         border: 2px solid black;
-         border-radius: 10px;
-         width: 30%
+         
+         .editbtncolor{
+         background-color: green;
+         border: none;
+          border-radius: 10px;
+           color:white;
          }
+         
+         
+         .deletebtncolor{
+          background-color: red;
+           border: none;
+           border-radius: 10px;
+           color:white;
+         }
+         
+         #addbtn{
+         background-color: #61fac2;
+           border: none;
+           border-radius: 10px;
+           margin:1% 0 1% 45%;
+           padding:5px 10px;
+           
+           
+         
+         }
+         
       </style>
    </HEAD>
    <BODY>
-   <jsp:include page="header.jsp"></jsp:include>
+   
+   
+   
+   
+
+		<button id="addbtn"><a href="add_student">Add Student</a></button>
+
+   
+   
+   
+   
       <div id= "tableDiv">
          <table id="myTable" class="display">
             <thead>
@@ -47,8 +84,8 @@
                      <td>${data.name}</td>
                      <td>${data.marks}</td>
                      <td>${data.address}</td>
-                     <td><a href="/editStudentById/${data.id}" class="btn">Edit</a></td>
-                     <td><a href="/deleteStudentById/${data.id}" class="btn">delete</a></td>
+                     <td><a href="/editStudentById/${data.id}" class="btn edit"><button class="editbtncolor">Edit</button></a></td>
+                     <td><a href="/deleteStudentById/${data.id}" class="btn delete"><button class="deletebtncolor">delete</button></a></td>
                      
                   </tr>
                </c:forEach>

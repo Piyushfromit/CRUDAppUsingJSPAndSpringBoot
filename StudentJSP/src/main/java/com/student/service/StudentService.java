@@ -17,7 +17,4 @@ public interface StudentService {
 	public Student deleteStudentById(Integer id);
 
 
-
-	public Student saveByIdStudent(Integer id, Student student);
-
 }

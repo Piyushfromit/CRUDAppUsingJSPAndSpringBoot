@@ -78,23 +78,6 @@ public class StudentServiceImp implements StudentService {
 		} 
 		return opt.get();
 	}
-
-
-
-
-	
-
-	@Override
-	public Student saveByIdStudent(Integer id, Student student) {
-		Student student2=studentRepo.findById(id).orElse(null);
-		student2.setName(student.getName());
-		student2.setMarks(student.getMarks());
-		student2.setAddress(student.getAddress());
-		return student2;
-		
-	}
-	
-	
 	
 
 }

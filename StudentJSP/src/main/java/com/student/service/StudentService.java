@@ -16,7 +16,7 @@ public interface StudentService {
 
 	public Student deleteStudentById(Integer id);
 
-	public Object findByIdStudent(Integer id);
+
 
 	public Student saveByIdStudent(Integer id, Student student);
 

@@ -20,6 +20,7 @@ import com.student.service.StudentService;
 @Controller
 public class StudentController {
 	
+	
     @Autowired
     StudentService studentService;
 
@@ -50,17 +51,27 @@ public class StudentController {
 		return "redirect:/view_student";
 	}
 	
-	
+	// Update Student
 	@GetMapping("/editStudentById/{id}")
 	public String updateStudentById(@PathVariable Integer id, Model model) {
-		model.addAttribute("id",id);
-		model.addAttribute("command", studentService.findByIdStudent(id));
+		
+		model.addAttribute("command", studentService.getStudentById(id));
+		
 		return "update_student";
 	}
 	
-	@RequestMapping("/editStudentById/{id}")
-	public String updateStudentById(@PathVariable Integer id, Student student, Model model) {
-		studentService.saveByIdStudent(id,student);
+	// Update Student
+	@PostMapping("/editStudentById/{id}")
+	public String updateStudentById(@PathVariable Integer id, Student st, Model model) {
+		
+		Student oldstudent =  studentService.getStudentById(id);
+		
+		oldstudent.setName(st.getName());
+		oldstudent.setMarks(st.getMarks());
+		oldstudent.setAddress(st.getAddress());
+		
+		studentService.updateStudent(oldstudent);
+		
 		return "redirect:/view_student";
 		
 	}

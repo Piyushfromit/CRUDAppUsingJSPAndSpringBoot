@@ -82,10 +82,7 @@ public class StudentServiceImp implements StudentService {
 
 
 
-	@Override
-	public Optional<Student> findByIdStudent(Integer id) {
-		return studentRepo.findById(id);
-	}
+	
 
 	@Override
 	public Student saveByIdStudent(Integer id, Student student) {
